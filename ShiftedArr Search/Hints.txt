@@ -1,0 +1,7 @@
+Shifted Array Search
+A common mistake is to try to solve by concatenating the shifted array to itself. E.g. [9, 12, 17, 2, 4, 5, 9, 12, 17, 2, 4, 5] for the example above. While this might seem right at first glance, there isn’t really a good way to identify the part of the array that we need to focus on in order to find the index of num.
+If your peer is stuck, ask them how they’d go about finding a number in a regular (i.e. unshifted) sorted array. Hint: Binary Search.
+If your peer doesn’t understand binary search, go ahead and explain it to them. Be sure to reduce their rating on ‘problem solving’ in the feedback from, though.
+Make sure that your peer fully implements the binary search algorithm since they’re going to need it anyway as part of the full solution.
+Watch out for mistakes with index calculations, e.g. division results not rounded, going out of an array bounds, forgotten indices etc.
+To be considered optimal, the solution must achieve O(log((N)) time complexity.
