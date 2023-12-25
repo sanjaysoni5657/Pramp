@@ -1,0 +1,81 @@
+Deletion Distance
+Let str1Len and str2Len be the lengths of str1 and str2, respectively. Consider the function: opt(i,j) which returns the deletion distance for the i'th prefix of str1, and the j'th prefix of str2. What we want to do in this solution, is to use dynamic programming in order to build a function that calculates opt(str1Len, str2Len). Notice the following:
+
+opt(0,j) = j and opt(i,0) = i
+
+This is true because if one string is the empty string, we have no choice but to delete all letters in the other string.
+
+If i,j > 0 and str1[i] ≠ str2[j] then opt(i,j) = 1 + min(opt(i-1, j), opt(i, j-1))
+
+This holds since we need to delete at least one of the letters str1[i] or str2[j] and the deletion of one of the letters is counted as 1 deletion (hence the 1 in the formula). Then, since we’re left with either the (i-1)'th prefix of str1, or the (j-1)'th prefix of str2, need to take the minimum between opt(i-1,j) and opt(i,j-1). We, therefore, get the equation opt(i,j) = 1 + min(opt(i-1,j), opt(i,j-1)).
+
+If i,j > 0 and str1[i] = str2[j], then opt(i,j) = opt(i-1, j-1)
+
+This holds since we don’t need to delete the last letters in order to get the same string, we simply use the same deletions we would to the (i-1)'th and (j-1)'th prefixes.
+
+Solution 1
+
+After finding the relations above for opt(i,j), we use dynamic programming methods to calculate opt(str1Len, str2Len), i.e. the deletion distance for the two strings, by calculating opt(i,j) for all 0 ≤ i ≤ str1Len, 0 ≤ j ≤ str2Len, and saving previous values for later use:
+
+Pseudocode:
+
+function deletionDistance(str1, str2):
+    str1Len = str1.length
+    str2Len = str2.length
+    
+    # allocate a 2D array with str1Len + 1 rows and str2Len + 1 columns
+    memo = new Array(str1Len + 1, str2Len + 1)
+
+    for i from 0 to str1Len:
+        for j from 0 to str2Len:
+            if (i == 0):
+                memo[i][j] = j
+            else if (j == 0):
+                memo[i][j] = i
+            else if (str1[i-1] == str2[j-1]):
+                memo[i][j] = memo[i-1][j-1]
+            else:
+                memo[i][j] = 1 + min(memo[i-1][j], memo[i][j-1])
+
+    return memo[str1Len][str2Len]
+Time Complexity: we have a nested loop that executes O(1) steps at every iteration, thus we the time complexity is O(N⋅M) where N and M are the lengths of str1 and str2, respectively.
+
+Space Complexity: we save every value of opt(i,j) in our memo 2D array, which takes O(N⋅M) space, where N and M are the lengths of str1 and str2, respectively.
+
+Solution 2
+
+The solution above takes O(N⋅M) space since we save all previous values, but notice that opt(i,j) requires only opt(i-1,j), opt(i,j-1) and opt(i-1,j-1). Thus, by iterating first through 0 ≤ i ≤ str1Len, and then for every i calculating 0 ≤ j ≤ str2Len, we need only to save the values for the current i and the last i. This will reduce the space needed for the function.
+
+Pseudocode:
+
+function deletionDistance(str1, str2):
+    # make sure the length of str2 isn't
+    # longer than the length of str1
+    if (str1.length < str2.length)
+        tmpStr = str1
+        str1 = str2
+        str2 = tmpStr
+
+    str1Len = str1.length
+    str2Len = str2.length
+    prevMemo = new Array(str2Len  + 1)
+    currMemo = new Array(str2Len  + 1)
+
+    for i from 0 to str1Len:
+        for j from 0 to str2Len:
+            if (i == 0):
+                currMemo[j] = j
+            else if (j == 0):
+                currMemo[j] = i
+            else if (str1[i-1] == str2[j-1]):
+                currMemo[j] = prevMemo[j-1]
+            else:
+                currMemo[j] = 1 + min(prevMemo[j], currMemo[j-1])
+
+        prevMemo = currMemo
+        currMemo = new Array(str2Len + 1);  
+                                           
+    return prevMemo[str2Len]
+Time Complexity: the time complexity stays the same, i.e. O(N⋅M), since we still run a nested loop with N⋅M iterations.
+
+Space Complexity: O(min(N,M)), as we only need to hold two rows of the double array.
