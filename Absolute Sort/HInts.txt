@@ -1,0 +1,4 @@
+Absolute Value Sort
+We can try either a selection sort, or leveraging the sort function in the language library.
+For a selection sort, we’ll take the largest unsorted value and put it as the next element. To know an element is the largest, we need to write a custom comparison function.
+To leverage the sort function in our library, typically we will also need a custom comparison function.

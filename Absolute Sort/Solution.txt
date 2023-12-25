@@ -1,0 +1,42 @@
+Absolute Value Sort
+Approach #1: Selection Sort
+
+Write a custom comparison function, such as smaller(a, b) which is true if and only if a is supposed to come before b (and a != b). From here, we can repeatedly find the ‘smallest’ number in A[i], A[i+1], ..., A[A.length - 1] and swapping it with A[i].
+
+function absSort(arr):
+    function smaller(a, b):
+        if abs(a) < abs(b): return true
+        if abs(a) > abs(b): return false
+        return a < b
+
+    for i from 0 to arr.length - 2:
+        best = i
+        for j from i to arr.length - 1:
+            if smaller(arr[j], arr[best]):
+                best = j
+        arr[best], arr[i] = arr[i], arr[best]
+
+    return arr
+Time Complexity: O(N^2) from our two for loops.
+
+Space Complexity: O(1), the additional space used by best.
+
+Approach #2: Custom Sort
+
+Leverage the sort function of your languages library. Usually, it will have support for either a custom comparison function.
+
+For a custom comparison function compare(a, b), typically we want to return -1 if a < b, 1 if a > b, and 0 if a == b.
+
+function absSort(arr):
+    def compare(a, b):
+        if abs(a) < abs(b): return -1
+        if abs(a) > abs(b): return 1
+        if a < b: return -1
+        if a > b: return 1
+        return 0
+
+    arr.sort(cmp = compare)
+    return arr
+Time Complexity: O(N log N), the complexity of sorting.
+
+Space Complexity: O(N), the space typically used by compilers in their implementation of sorting operations.
