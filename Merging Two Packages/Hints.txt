@@ -1,0 +1,7 @@
+Merging 2 Packages
+A common mistake is to assume that the input array is sorted. Make sure your peer doesn’t make that assumption. Better yet, if your peer is following any common “best practices” in technical interviews, they would know to ask whether they can make any assumptions in the beginning of their interview.
+Another common mistake is to assume that the item weights in the input array are unique. This is not the case. A valid input could be, for instance, arr = [4,4] and limit = 8.
+If your peer can’t come up with a solution, ask for the brute force solution and then ask how they can optimize it.
+If your peer can’t think of a better solution than the brute force, ask them if they’re familiar with any data structures, i.e. a Map/Hash Table, that enable lookups in constant time. Then ask how they can use this data structure to solve the problem efficiently.
+Watch out for hashing an item weight before looking up in the map its complement.
+For instance, for an item weight w that equals to limit/2 (whose complement is also limit/2), hashing the weight before looking up the complement can “detect” a pair even when there is only one item whose weight is w in arr.
