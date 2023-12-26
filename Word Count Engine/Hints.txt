@@ -1,0 +1,7 @@
+Word Count Engine
+If your peer is stuck, you can start things up by asking about the data structures needed for the solution.
+For each data structure, ask your peer to explain what it is and why is it optimal in this case.
+Things your peer should be cognizant of: tokenizing the document string, cleaning whitespaces and punctuation and converting words to lowercase.
+Encourage your peer to use whatever native parsing functions their programming language of choice provides (as opposed to reinventing the wheel and implementing their own functions).
+Your peer may be tempted to use a standard O(N⋅log(N)) sorting algorithm to meet the question requirements. While this is an acceptable solution, they can do better than that and attain and O(N) time complexity, where N stands for the number of words in the document.
+Ask your peer why, from a practical perspective, it’s ok to measure the time and space complexities in terms of the number of words and not in terms of the number of characters. Obviously, the latter is more accurate, however, in practice, using words is asymptotically accurate enough with the extra benefit of being more convenient.
