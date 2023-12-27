@@ -1,0 +1,33 @@
+Busiest Time in The Mall
+To find the busiest time, we need to figure out how many people were at the mall after each entry/exit. However, we are given the changes (the “deltas”) in the number of people, and not this number. We can build this data by adding/subtracting each entry/exist by ascending time order.
+
+Since the data is sorted in ascending order by data points’ timestamps, the we can scan it linearly in-order and keep a variable with the amount of people in the mall. For each change in the number we compare the current number to the maximum we had so far, and make it the new maximum if it is bigger. Also, to store the end of the max period, we set it before examining the next data entry.
+
+Pseudocode:
+
+function findBusiestPeriod(data):
+    n = data.length
+    count = 0
+    maxCount = 0
+    maxPeriodTime = 0
+
+    for i from 0 to n-1:
+        # update count
+        if (data[i][2] == 1): # visitors entered the mall  
+            count += data[i][1]
+        else if (data[i][2] == 0): # visitors existed the mall
+            count -= data[i][1]
+
+        # check for other data points with the same timestamp
+        if (i < n-1 AND data[i][0] == data[i+1][0]):
+            continue
+
+        # update maximum
+        if (count > maxCount):
+            maxCount = count
+            maxPeriodTime = data[i][0]
+
+    return maxPeriodTime
+Time Complexity: O(N) since every data point in the input array gets visited only once in the for loop.
+
+Space Complexity: O(1). The various auxiliary counters and the output, all use a constant space.
