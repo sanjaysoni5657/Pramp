@@ -1,0 +1,4 @@
+Busiest Time in The Mall
+While the question specifies explicitly that the data is sorted by time, your peer may miss this fact. Make sure your peer is aware of this as it’s an important part of the solution.
+Another thing to pay attention to is that there could be multiple data points with the same timestamp. The mall has multiple entrances and visitors could be entering and exiting at different areas of the mall at the same time. This is important since data points with the same time stamp clearly cannot be regarded as different periods in algorithm.
+Pay attention to code correctness and edge cases.
