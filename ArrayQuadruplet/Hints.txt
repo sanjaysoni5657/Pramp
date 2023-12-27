@@ -1,0 +1,5 @@
+Array Quadruplet
+Any solution of more than O(N^3) is not efficient enough. Please rate your peer accordingly on the problem solving section.
+If you peer can’t think of the any solution, encourage them to implement first a brute force solution and then optimize it.
+If your peer can’t improve the naive solution, ask them how using sorting can improve the time complexity.
+If still no progress, ask your peer to try first to solve the problem for a pair of integers instead of a quadruplet (i.e. find two numbers whose sum is s etc.). Then ask them to generalize that solution to a quadruplet.
