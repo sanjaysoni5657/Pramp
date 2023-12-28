@@ -1,0 +1,23 @@
+Drone Flight Planner
+If your peer is having a hard time, help them focus by getting the x and y coordinates out of the way. The z coordinate (i.e. the altitude) is the only coordinate that matters.
+If your peer is still stuck, ask them the calculate manually the solution for the example. Ask whether they can then generalize the approach they used to an algorithm.
+A common mistake is to assume that the solution is a simple summation over all the differences between the z coordinates of consecutive points, i.e. 
+∑
+n
+−
+2
+i
+=
+0
+(
+Z
+i
+−
+Z
+i
++
+1
+)
+ where Zi is the z coordinate of Point Pi in route. For instance, for the example above, this approach will return 2 (kWh) as an answer. However, the correct answer is 5 (kWh).
+Another common mistake is to calculate the difference between the max and min altitudes of the drone’s route. Try to figure out why this approach is incorrect.
+If still no progress, ask you peer to think of the net impact on the energy stored in the drone each time the drone crosses the starting altitude - either from above or from below. In the end, most energy gains and losses cancel each out due to these crosses. That means that for the solution only two points in route matter. One such point is clearly the starting point. Can you think of the other point that matters?
