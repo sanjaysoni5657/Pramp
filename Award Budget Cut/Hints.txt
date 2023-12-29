@@ -1,0 +1,6 @@
+Award Budget Cuts
+If you peer is stuck, ask them how they can use sorting in order to arrive to the solution. It’s probably easier to solve if the array is sorted in a descending order. However, this is not a must.
+If your peer doesn’t know how to proceed, suggest to them to test out each of the values in the sorted grants array as a potential cap.
+A key step in the solution is knowing how to test whether a certain value is indeed the cap. Push your peer to provide a clear explanation on how to do that.
+If your peer is in the right direction, they’d be able to find out a lower bound to the cap, based on the given grants values. The next step in the solution then would be to calculate the exact cap given that lower bound.
+Note that there can be only one possible value of cap. You peer may not pay attention to the cap definition and use a lower cap that affects more grants. Make sure your peer is solving for the right cap as defined - one that affects the minimum number of grants.
