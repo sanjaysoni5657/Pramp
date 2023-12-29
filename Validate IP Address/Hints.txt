@@ -1,0 +1,8 @@
+Validate IP Address
+How many periods (’.’) must the IP address have?
+
+A good idea is to split the string into chunks delimited by the period character (’.’).
+
+For each chunk delimited by a period, how many possibile strings are there?
+
+Does your code handle addresses like 008.123.34.56 appropriately?
