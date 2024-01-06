@@ -1,0 +1,4 @@
+Pairs with Specific Difference
+If your peer is stuck, ask them to start with the brute force solution and then try to optimize it.
+If your peer needs additional help, suggest that using an auxiliary data structure might make the solution more efficient.
+If this doesn’t help, ask them if splitting the problem into indexing and then searching could help us come up with an optimal solution.
